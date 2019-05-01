@@ -1,2 +1,7 @@
-# jdsay-talk-2019
-Code for JSDay Talk 2019 - A DIY Guide To Building Your Own Rendering Engine
+# A DIY Guide To Building Your Own Rendering Engine - Code Examples
+
+[![framework less](https://file-blyuofkggj.now.sh)](https://github.com/frameworkless-movement/manifesto)
+
+To start the examples just run:
+    
+    npm start
