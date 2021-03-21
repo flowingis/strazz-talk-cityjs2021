@@ -1,4 +1,8 @@
 const isNodeChanged = (node1, node2) => {
+  if (node1.tagName !== node2.tagName) {
+    return true
+  }
+
   const n1Attributes = node1.attributes
   const n2Attributes = node2.attributes
   if (n1Attributes.length !== n2Attributes.length) {
