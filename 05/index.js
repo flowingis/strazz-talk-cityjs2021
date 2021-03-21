@@ -1,10 +1,10 @@
 import getTodos from './getTodos.js'
+import applyDiff from './applyDiff.js'
+import registry from './registry.js'
+
 import todosView from './view/todos.js'
 import counterView from './view/counter.js'
 import filtersView from './view/filters.js'
-import applyDiff from './applyDiff.js'
-
-import registry from './registry.js'
 
 registry.add('todos', todosView)
 registry.add('counter', counterView)
