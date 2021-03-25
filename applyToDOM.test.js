@@ -1,4 +1,4 @@
-import applyDiff from './applyDiff.js'
+import applyToDOM from './applyToDOM.js'
 
 let parentNode
 
@@ -8,7 +8,7 @@ const createNode = html => {
   return div.firstElementChild
 }
 
-describe('applyDiff', () => {
+describe('applyToDOM', () => {
   beforeEach(() => {
     parentNode = document.createElement('div')
   })
@@ -16,7 +16,7 @@ describe('applyDiff', () => {
   test('should add the node to the parent if not real node is not provided', () => {
     const virtualNode = createNode('<h1>Node</h1>')
 
-    applyDiff(parentNode, undefined, virtualNode)
+    applyToDOM(parentNode, undefined, virtualNode)
 
     expect(parentNode.innerHTML).toBe('<h1>Node</h1>')
   })
@@ -25,7 +25,7 @@ describe('applyDiff', () => {
     const realNode = createNode('<h1>Node</h1>')
     parentNode.appendChild(realNode)
 
-    applyDiff(parentNode, realNode, undefined)
+    applyToDOM(parentNode, realNode, undefined)
 
     expect(parentNode.childNodes.length).toBe(0)
   })
@@ -36,7 +36,7 @@ describe('applyDiff', () => {
 
     const virtualNode = createNode('<h2>Node</h2>')
 
-    applyDiff(parentNode, realNode, virtualNode)
+    applyToDOM(parentNode, realNode, virtualNode)
 
     expect(parentNode.innerHTML).toBe('<h2>Node</h2>')
   })
@@ -47,7 +47,7 @@ describe('applyDiff', () => {
 
     const virtualNode = createNode('<h1 class="virtual">Node</h1>')
 
-    applyDiff(parentNode, realNode, virtualNode)
+    applyToDOM(parentNode, realNode, virtualNode)
 
     expect(parentNode.innerHTML).toBe('<h1 class="virtual">Node</h1>')
   })
@@ -58,7 +58,7 @@ describe('applyDiff', () => {
 
     const virtualNode = createNode('<h1 class="real">Another Node</h1>')
 
-    applyDiff(parentNode, realNode, virtualNode)
+    applyToDOM(parentNode, realNode, virtualNode)
 
     expect(parentNode.innerHTML).toBe('<h1 class="real">Another Node</h1>')
   })
@@ -69,7 +69,7 @@ describe('applyDiff', () => {
 
     const virtualNode = createNode('<ul><li class="virtual">1</li><li>2</li></ul>')
 
-    applyDiff(parentNode, realNode, virtualNode)
+    applyToDOM(parentNode, realNode, virtualNode)
 
     expect(parentNode.innerHTML).toBe('<ul><li class="virtual">1</li><li>2</li></ul>')
   })

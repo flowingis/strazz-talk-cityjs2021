@@ -30,7 +30,7 @@ const add = (name, component) => {
   registry[name] = renderWrapper(component)
 }
 
-const renderRoot = (root, state) => {
+const render = (root, state) => {
   const cloneComponent = root => {
     return root.cloneNode(true)
   }
@@ -40,5 +40,5 @@ const renderRoot = (root, state) => {
 
 export default {
   add,
-  renderRoot
+  render
 }
